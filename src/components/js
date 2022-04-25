@@ -1,17 +1,17 @@
-<template>
-  <div>
-    <q-card flat>
-      <q-card-section>
-        <Org />
-      </q-card-section>
-      <q-separator />
-      </q-card>
-<q-card>
-  <q-card-section>
-<p class="" style="text-align:; color:gray; font-weight:bold" >Arquivos</p>
-  </q-card-section>
-  
-            <div v-for="item in carro" :key="item.id" class="row inline">
+<q-card-section class="row">
+        <div>
+          <img :ratio="1" style="width: 20px" src="@/assets/pasta.png" />
+        </div>
+        <q-expansion-item
+          
+          style="width: 80%"
+          dense
+          dense-toggle
+          expand-separator
+          label="Foto de motos"
+        >
+          <q-item style="width: 100px">
+            <div v-for="item in moto" :key="item.id" class="row inline">
               <q-btn flat @click="icon = true">
                 <q-card class="row inline">
                   <q-card-section>
@@ -24,7 +24,7 @@
                   </q-card-section>
                 </q-card>
               </q-btn>
-              <q-dialog v-model="icon">
+              <q-dialog v-model="icon" :key="item.id">
                 <q-card>
                   <q-card-section class="row items-center q-pb-none">
                     <div class="text-h6">{{ item.nome }}.{{ item.tipo }}</div>
@@ -32,31 +32,12 @@
                     <q-btn icon="close" flat round dense v-close-popup />
                   </q-card-section>
 
-                     <img :src="item.link">
-                  
+                  <q-card-section>
+                    <img :src="item.link" />
+                  </q-card-section>
                 </q-card>
               </q-dialog>
             </div>
-</q-card>
-  </div>
-</template>
-<script>
-import { ref } from "vue";
-import Org from "@/components/organizar.vue";
-import { itensStore } from "../store/fotos.js";
-
-export default {
-  components: {
-    Org,
-  },
-  setup() {
-    const store = itensStore();
-    return {
-      icon: ref(false),
-      
-
-      carro: store.fotosCarro,
-    };
-  },
-};
-</script>
+          </q-item>
+        </q-expansion-item>
+      </q-card-section>

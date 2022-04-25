@@ -6,20 +6,24 @@ export const itensStore = defineStore('Computador', {
             itemsComp: [
                 {
                     id: 1,
-                    nome: 'GERAL'
+                    nome: 'fotos',
+                    link: '/',
+                   // itens: [pasta = [fotos]]
                 },
                 {
                     id: 2,
-                    nome: 'FOTOS'
+                    nome: 'arquivos',
+                    link: '/arquivos'
                 },
-                {
+                /*{
                     id: 3,
-                    nome: 'VIDEOS'
+                    nome: 'VIDEOS',
+                    link: /videos
                 },
                 {
                     id: 4,
                     nome: 'ARQUIVOS'
-                },
+                },*/
 
             ]
         }
