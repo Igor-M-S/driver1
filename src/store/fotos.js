@@ -5,14 +5,14 @@ export const itensStore = defineStore('fotos', {
         return {
             fotosCarro: [
                 {
-                    id: 1,
+                    id: "1",
                     link:'https://http2.mlstatic.com/D_NQ_NP_991408-MLB49013776830_022022-O.jpg',
                     nome:'Monza',
                     tipo:'jpg',
                     descricao: 'monza turbinado com rodas de super tração'
                 },
                 {
-                    id: 2,
+                    id: "2",
                     link:'https://tamanhos.com.br/img/miniaturas-motos-1-1-kawasaki-ninja-zx-10r-maisto.png',
                     nome:'Moto',
                     tipo:'jpg',
@@ -49,30 +49,7 @@ export const itensStore = defineStore('fotos', {
                     link:'https://tamanhos.com.br/img/miniaturas-motos-1-1-kawasaki-ninja-zx-10r-maisto.png'
                 },*/
             ],
-            arquivo:[
-                {
-                    id: 1,
-                    nome: "lorem",
-                    link: "Lorem ipsum dolor sit amet, consectetur adipiscing eli sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamcoaboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt  mollit anim id est laborum"
-,                    tipo: "text",
-                    descricao: 'lorem isopo'
-                },
-                {
-                    id: 2,
-                    nome: "lorem",
-                    link: "Lorem ipsum dolor sit amet, consectetur adipiscing eli sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamcoaboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt  mollit anim id est laborum"
-,                    tipo: "text",
-                    descricao: 'lorem isopo'
-                },
-                {
-                    nome: "lorem",
-                    link: "Lorem ipsum dolor sit amet, consectetur adipiscing eli sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamcoaboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt  mollit anim id est laborum"
-,                    tipo: "text",
-                    descricao: 'lorem isopo',
-                    id:3,
-                },
-                
-            ]
+
         }
     }
 })

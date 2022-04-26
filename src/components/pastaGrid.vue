@@ -1,22 +1,7 @@
 <template>
-  <div>
-    <q-card flat>
-      <q-card-section>
-        <Org />
-      </q-card-section>
-      <q-separator />
-    </q-card>
-    <q-card flat>
-      <q-card-section>
-        <p class="" style="text-align: ; color: gray; font-weight: bold">
-          Arquivos
-        </p>
-        <q-separator />
-      </q-card-section>
-       <div class="q-pa-md">
+  <div class="q-pa-md">
     <q-table
-      flat
-      dense
+      grid
       :rows="rows"
       :columns="columns"
       row-key="name"
@@ -57,24 +42,47 @@
       </q-card>
     </q-dialog>
   </div>
-      
-    </q-card>
-  </div>
 </template>
 <script>
 import { ref } from "vue";
-import Org from "@/components/organizar.vue";
-import { itensStore } from "../store/fotos.js";
+import { itensStore } from "../store/arquivos.js";
+import { copyToClipboard } from "quasar";
+//import { colors } from "quasar";
+
+//import Org from "@/components/organizar.vue";
 
 export default {
   components: {
-    Org,
+    // Org,
   },
   data() {
-    const store = itensStore();
     return {
+      
+      maximized: true,
+      tab: "one",
+      inLoading: true,
+      useData: false,
+      useWifi: false,
+      getSelectedString: Boolean,
+    };
+  },
+  setup() {
+    const store = itensStore();
+    const val = ref(true);
+    const rows = store.rows;
+    const columns = store.columns;
+
+    return {
+      val,
+      //val: ref(true),
       icon: ref(false),
-      carro: store.fotosCarro,
+      icon2: ref(false),
+      rows,
+      copyToClipboard,
+      columns,
+      onResetClick() {
+        val.value = "lista";
+      },
     };
   },
 };
