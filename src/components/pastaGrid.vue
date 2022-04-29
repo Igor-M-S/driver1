@@ -8,15 +8,14 @@
       :selected-rows-label="getSelectedString"
       @row-dblclick="icon = true"
     >
-    <template #header-cell="props">
-    <q-th
-      style="font-size: 12px; font-weight:bold; color:#595959"
-      
-      :props="props"
-    >
-      {{ props.col.label }}
-    </q-th>
-  </template>
+   <template v:slot:item="props">
+      <div class="">
+        <q-card v-for="item in rows" :key="item.id" class="text-center" >
+          <img :src="item.link" />
+        </q-card>
+      </div>
+
+   </template>
    <template #body-cell-nome="props">
      
        <q-td :props="props">
@@ -30,17 +29,7 @@
    </template>
 
     </q-table>
-    <q-dialog v-model="icon" v-for="item in rows" :key="item">
-      <q-card>
-        <q-card-section class="row items-center q-pb-none">
-          <div class="text-h6">{{item.nome}}</div>
-          <q-space />
-          <q-btn icon="close" flat round dense v-close-popup />
-        </q-card-section>
-
-        <p>{{item.link}}</p>
-      </q-card>
-    </q-dialog>
+   
   </div>
 </template>
 <script>
