@@ -1,5 +1,4 @@
 <template>
-  <div class="q-pa-md">
     <q-table
       flat
       dense
@@ -12,77 +11,61 @@
     <template #header-cell="props">
     <q-th
       style="font-size: 12px; font-weight:bold; color:#595959"
-      
       :props="props"
     >
       {{ props.col.label }}
     </q-th>
+    
   </template>
+    
    <template #body-cell-nome="props">
      
        <q-td :props="props">
       <q-icon
-        name="description"
-        style="color: #919191"
-        size="17px"
+        name="play_circle"
+        
         class="q-mr-sm"
-      />{{ props.col.label }}
+      />{{ props.row.nome }}
     </q-td>
     <q-popup-proxy>
             <q-banner>
               <template v-slot:avatar>
-                <p>{{ props.row.link }}</p>
+                <q-video :src="props.row.link"></q-video>
               </template>
             </q-banner>
           </q-popup-proxy>
      
     
    </template>
+   <template #body-cell="props">
+     <td :props="props">{{props.row.tipo}}</td>
+     
+
+   </template>
 
     </q-table>
-   
-  </div>
 </template>
 <script>
 import { ref } from "vue";
-import { itensStore } from "../store/arquivos.js";
-import { copyToClipboard } from "quasar";
-//import { colors } from "quasar";
-
-//import Org from "@/components/organizar.vue";
+import { itensStore } from "../store/videos.js";
 
 export default {
   components: {
-    // Org,
+    
   },
   data() {
-    return {
-      
-      maximized: true,
-      tab: "one",
-      inLoading: true,
-      useData: false,
-      useWifi: false,
-      getSelectedString: Boolean,
-    };
-  },
-  setup() {
     const store = itensStore();
-    const val = ref(true);
-    const rows = store.rows;
-    const columns = store.columns;
-
+    const rows = store.rows
+    const columns = store.columns
+    const link = rows.link
+    
     return {
-      val,
-      //val: ref(true),
       icon: ref(false),
-      icon2: ref(false),
+       getSelectedString: Boolean,
       rows,
-      copyToClipboard,
       columns,
-      onResetClick() {
-        val.value = "lista";
-      },
+      link
+      
     };
   },
 };

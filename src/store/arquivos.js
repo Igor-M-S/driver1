@@ -11,13 +11,13 @@ export const itensStore = defineStore('arquivos', {
 ,                   tipo: "text",
                     descricao: 'lorem isopo'
                 },     
-                {
-                    id: 2,
-                    nome: "lorem Português",
-                    link: "A dor em si é o amor Mas a dor no filme é irrecusável para condenar, no prazer quer fugir da dor de ser cillum na dor, sem resultado. Aqueles que anseiam por negros são a exceção, eles não veem, são culpados por quem abandona suas responsabilidades, essa é a dificuldade que amolece suas mentes"
-,                   tipo: "text",
-                    descricao: 'lorem isopo'
-                },   
+                 {
+                        id: 2,
+                        nome: "lorem Português",
+                        link: "A dor em si é o amor Mas a dor no filme é irrecusável para condenar, no prazer quer fugir da dor de ser cillum na dor, sem resultado. Aqueles que anseiam por negros são a exceção, eles não veem, são culpados por quem abandona suas responsabilidades, essa é a dificuldade que amolece suas mentes"
+    ,                   tipo: "text",
+                        descricao: 'lorem isopo'
+                    },   
             ],
             columns:[
                 {

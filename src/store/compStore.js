@@ -15,12 +15,12 @@ export const itensStore = defineStore('Computador', {
                     nome: 'arquivos',
                     link: '/arquivos'
                 },
-                /*{
-                    id: 3,
-                    nome: 'VIDEOS',
-                    link: /videos
-                },
                 {
+                    id: 3,
+                    nome: 'videos',
+                    link: '/videos'
+                },
+                /*{
                     id: 4,
                     nome: 'ARQUIVOS'
                 },*/

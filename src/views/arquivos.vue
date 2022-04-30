@@ -61,7 +61,7 @@ export default {
       //val: ref(true),
       icon: ref(false),
       icon2: ref(false),
-      arquivo: store.arquivo,
+      
       
       copyToClipboard,
       

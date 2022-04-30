@@ -6,41 +6,34 @@
       :columns="columns"
       row-key="name"
       :selected-rows-label="getSelectedString"
-      @row-dblclick="icon = true"
+      @row-click="icon = true"
     >
-    <template #header-cell="props">
-    <q-th
-      style="font-size: 12px; font-weight:bold; color:#595959"
-      
-      :props="props"
-    >
-      {{ props.col.label }}
-    </q-th>
-  </template>
-   <template #body-cell-nome="props">
-     
-       <q-td :props="props">
-      <q-icon
-        name="font_download"
-        class="q-mr-sm"
-      />{{ props.col.label }}
-    </q-td>
-     
-    
-   </template>
+      <template #item="props">
+        <div class="q-pa-xs col-xs-12 col-sm-6 col-md-3">
+          <div style="width:130px">
+          <q-card class="cardo" style="width: 130px">
+            <q-icon
+              name="description"
+              style="color: #919191"
+              size="130px"
+              class="column"
+            ></q-icon>
 
+            <q-card-section class="flex flex-center">
+              <p q-mr-sm>{{ props.row.nome }}.{{ props.row.tipo }}</p>
+            </q-card-section>
+          </q-card>
+          </div>
+          <q-popup-proxy>
+            <q-banner>
+              <template v-slot:avatar>
+                <p>{{ props.row.link }}</p>
+              </template>
+            </q-banner>
+          </q-popup-proxy>
+        </div>
+      </template>
     </q-table>
-    <q-dialog v-model="icon" v-for="item in rows" :key="item">
-      <q-card>
-        <q-card-section class="row items-center q-pb-none">
-          <div class="text-h6">{{item.nome}}</div>
-          <q-space />
-          <q-btn icon="close" flat round dense v-close-popup />
-        </q-card-section>
-
-        <p>{{item.link}}</p>
-      </q-card>
-    </q-dialog>
   </div>
 </template>
 <script>
@@ -57,7 +50,6 @@ export default {
   },
   data() {
     return {
-      
       maximized: true,
       tab: "one",
       inLoading: true,
@@ -87,3 +79,8 @@ export default {
   },
 };
 </script>
+<style scoped>
+.cardo:hover {
+  background-color: rgb(228, 227, 227);
+}
+</style>

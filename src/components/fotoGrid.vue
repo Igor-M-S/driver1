@@ -1,0 +1,74 @@
+<template>
+  <q-table
+    grid
+    dense
+    :rows="rows"
+    :columns="columns"
+    row-key="name"
+    :selected-rows-label="getSelectedString"
+  >
+    <template #item="props">
+      <div class="q-pa-xs col-xs-12 col-sm-6 col-md-3">
+        <q-card class="cardo" @click="icon = true" style="width: 130px">
+          <q-card-section class="text-center">
+            <img :src="props.row.link" :ratio="1" style="width: 100px" alt="" />
+          </q-card-section>
+
+          <q-separator />
+          <q-card-section
+            class="flex flex-center"
+            :style="{ fontSize: props.row.calories + 'px' }"
+          >
+            <div>{{ props.row.nome }}</div>
+            
+          </q-card-section>
+          <q-popup-proxy >
+        <q-banner >
+          <template v-slot:avatar>
+            <img style="width:200px" :ratio="1" :src="props.row.link" />
+          </template>
+          
+        </q-banner>
+      </q-popup-proxy>
+        </q-card>
+        
+      </div>
+    </template>
+  </q-table>
+
+  <div v-if="icon === true">
+         
+  </div>
+</template>
+
+<script>
+import { ref } from "vue";
+
+import { itensStore } from "../store/fotos.js";
+import { QToolbarTitle } from 'quasar';
+
+export default {
+  data() {
+    const store = itensStore();
+    const rows = store.rows;
+    const columns = store.columns;
+    const link = rows.link;
+
+    return {
+      val: ref(false),
+      icon: ref(false),
+      getSelectedString: Boolean,
+      rows,
+      columns,
+      link,
+    };
+  },
+  
+};
+</script>
+<style scoped>
+.cardo:hover {
+  background-color: rgb(228, 227, 227);
+}
+</style>
+
